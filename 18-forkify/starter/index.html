@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="src/img/favicon.png" type="image/x-icon" />
 
     <link rel="stylesheet" href="src/sass/main.scss" />
-    <script defer src="src/js/controller.js"></script>
+    <script type="module" defer src="src/js/controller.js"></script>
 
     <title>forkify // Search over 1,000,000 recipes</title>
   </head>
@@ -86,24 +86,26 @@
 
       <div class="search-results">
         <ul class="results">
+          <!-- <a href="#5ed6604591c37cdc054bc886">Recipe 1</a>
+          <a href="#5ed6604591c37cdc054bcc13">Recipe 2</a> -->
           <!-- 
-          <li class="preview">
-            <a class="preview__link preview__link--active" href="#23456">
-              <figure class="preview__fig">
-                <img src="src/img/test-1.jpg" alt="Test" />
-              </figure>
-              <div class="preview__data">
-                <h4 class="preview__title">Pasta with Tomato Cream ...</h4>
-                <p class="preview__publisher">The Pioneer Woman</p>
-                <div class="preview__user-generated">
-                  <svg>
-                    <use href="src/img/icons.svg#icon-user"></use>
-                  </svg>
+            <li class="preview">
+              <a class="preview__link preview__link--active" href="#23456">
+                <figure class="preview__fig">
+                  <img src="src/img/test-1.jpg" alt="Test" />
+                </figure>
+                <div class="preview__data">
+                  <h4 class="preview__title">Pasta with Tomato Cream ...</h4>
+                  <p class="preview__publisher">The Pioneer Woman</p>
+                  <div class="preview__user-generated">
+                    <svg>
+                      <use href="src/img/icons.svg#icon-user"></use>
+                    </svg>
+                  </div>
                 </div>
-              </div>
-            </a>
-          </li>
-           -->
+              </a>
+            </li>
+          -->
         </ul>
 
         <div class="pagination">
@@ -263,13 +265,13 @@
         <div class="upload__column">
           <h3 class="upload__heading">Recipe data</h3>
           <label>Title</label>
-          <input value="TEST" required name="title" type="text" />
+          <input value="TEST23" required name="title" type="text" />
           <label>URL</label>
-          <input value="TEST" required name="sourceUrl" type="text" />
+          <input value="TEST23" required name="sourceUrl" type="text" />
           <label>Image URL</label>
-          <input value="TEST" required name="image" type="text" />
+          <input value="TEST23" required name="image" type="text" />
           <label>Publisher</label>
-          <input value="TEST" required name="publisher" type="text" />
+          <input value="TEST23" required name="publisher" type="text" />
           <label>Prep time</label>
           <input value="23" required name="cookingTime" type="number" />
           <label>Servings</label>

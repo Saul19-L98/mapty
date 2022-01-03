@@ -115,9 +115,10 @@ const formatMovementDates = (date,locale) => {
     const calcDaysPassed = ((date1, date2) => Math.abs(Math.ceil((date2 - date1)/(1000*60*60*24))));
     const daysPassed = calcDaysPassed(new Date(), date);
     // console.log(daysPassed);
-    if(daysPassed === 0) return `TODAY`;
-    else if(daysPassed === 1) return `YESTERDAY`;
-    else if(daysPassed <= 30) return `${daysPassed} days ago.`;
+    //FIXED
+    if(daysPassed === 0) return `Ahora`;
+    else if(daysPassed === 1) return `Ayer`;
+    else if(daysPassed <= 30) return `hace ${daysPassed} dias.`;
     else{
         return Intl.DateTimeFormat(locale).format(date);
     };
@@ -130,11 +131,12 @@ const formatCur = (value,locale,currency) => {
     }).format(value);
 };
 
+//FIXED
 const displayMovements = function( acc, sort = false){
     containerMovements.innerHTML = '';
     const movs = sort ? acc.movements.slice().sort((a,b) => a - b) : acc.movements;
     movs.forEach(function(mov,i){
-        const type = mov > 0 ? 'deposit' : 'withdrawal';
+        const type = mov > 0 ? 'depositar' : 'retirar';
 
         const date = new Date(acc.movementsDates[i]);
         const displayDate = formatMovementDates(date,acc.locale);
@@ -199,10 +201,10 @@ const startLongOutTimer  = () => {
         labelTimer.textContent = `${min}:${sec}`;
 
         // When 0 seconds, stop timer and log out user.
-
+//FIXED
         if(time === 0){
             clearTimeout(timer);
-            labelWelcome.textContent = 'Long in to get started';
+            labelWelcome.textContent = 'Inicie sesion para comenzar😅';
             containerApp.style.opacity = 0;
         };
 
@@ -234,7 +236,7 @@ btnLogin.addEventListener('click', (e,sorted = false) => {
     console.log(currentAcc);
     if(currentAcc?.pin === Number(inputLoginPin.value)){
         //Display UI and message
-        labelWelcome.textContent = `Welcome back, ${currentAcc.owner.split(' ')[0]}`
+        labelWelcome.textContent = `Bienvenido, ${currentAcc.owner.split(' ')[0]}`
         containerApp.style.opacity = 100;
 
         //Create current date an time.
@@ -294,7 +296,8 @@ btnClose.addEventListener('click', (e)=>{
         accounts.splice(index, 1);
         containerApp.style.opacity = 0;
     };
-    labelWelcome.textContent="Log in to get started";
+    //FIXED
+    labelWelcome.textContent="nicie sesion para comenzar😅";
     inputCloseUsername.value = inputClosePin.value = '';
 });
 
